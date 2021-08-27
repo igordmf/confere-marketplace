@@ -6,10 +6,30 @@ export const Container = styled.div`
   border-radius: 8px;
   box-shadow: 0 1px 8px 2px #00000029;
   display: flex;
-  height: 210px;
+  height: 180px;
   justify-content: space-around;
   min-width: 500px;
   padding: 15px;
   text-align: center;
   width: 1200px;
+
+  >button {
+    background-color: #1a1859;
+    border-radius: 8px;
+    color: white;
+    font-size: large;
+    margin-top: 10px;
+    padding: 12px 20px;
+    transition: 0.2s ease-in-out all;
+
+    &:hover {
+      transform: scale(1.01);
+    }
+  }
+`
+
+export const TotalPrice = styled.span`
+  color: #ff963a;
+  font-size: 1.4rem;
+  font-weight: 800;
 `

@@ -14,7 +14,7 @@ export const Content = styled.main`
 export const ProductWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
   justify-content: center;
   margin: 20px auto;
   max-width: 1800px;
