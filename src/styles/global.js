@@ -34,7 +34,8 @@ export default createGlobalStyle`
   }
 
   body {
-    background-color: #f0f0f0;
+    background-color: #f5f7f9;
+    background: linear-gradient(#e8ebf1, #816cff);
   }
 
   body, input, textarea, button, select, option {
