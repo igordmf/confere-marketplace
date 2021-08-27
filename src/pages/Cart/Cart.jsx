@@ -5,18 +5,18 @@ import CartList from '../../components/molecules/CartList';
 
 function Cart() {
   const homeRef = useRef(null);
-  const cartItens = useSelector((state) => state.cartReducer.cartItens);
-  console.log(cartItens);
+  const cartItems = useSelector((state) => state.cartReducer.cartItems);
+  console.log(cartItems);
 
   return (
     <Container ref={ homeRef } >
-      {cartItens.length === 0
+      {cartItems.length === 0
         ?
         <div className="no-itens">
           <StyledSpan>Nenhum produto no carrinho</StyledSpan>
         </div>
         :
-        <CartList products={ cartItens } homeRef={ homeRef } />
+        <CartList products={ cartItems } homeRef={ homeRef } />
       }
     </Container>
   )
