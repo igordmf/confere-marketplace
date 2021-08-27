@@ -1,19 +1,30 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { Container, NoDiscountPrice, Discount, FinalPrice } from './styles';
+import { Container, NoDiscountPrice, Discount, FinalPrice, StyledPop } from './styles';
 import promotionPrice from '../../../helpers/promotionPrice';
 import { addProductToCart } from '../../../redux/actions';
+import Popper from '@material-ui/core/Popper';
 
 function ProductCard({ product }) {
-  const [size, setSize] = useState(null);
+  const [chosedSize, setChosedSize] = useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [openPopper, setOpenPopper] = useState(false);
   const dispatch = useDispatch();
-  console.log(size);
+  const history = useHistory();
 
-  const addToCart = () => {
-    if (size) {
-      console.log('addToCart');
-      dispatch(addProductToCart(product))
+  const addToCart = (event) => {
+    if (chosedSize) {
+      dispatch(addProductToCart({ ...product, chosedSize: chosedSize }));
+      history.push('/cart');
     } else {
+      setAnchorEl(event.currentTarget);
+      setOpenPopper(true);
+
+      setTimeout( () => {
+        setOpenPopper(false);
+      }, 2200);
+
       console.log('escolha um tamanho');
     }
   }
@@ -25,12 +36,12 @@ function ProductCard({ product }) {
       </div>
       <span>{ product.name }</span>
       {product.sizes && (
-        <span>Tamanhos {product.sizes.map((size) => size.available
+        <span>{product.sizes.map((size) => size.available
           ? (
               <button
                 key={ size.size }
-                onClick={ () => setSize(size.size) }
-                style={ (size.size) ? { backgroundColor: "#e8ebf1" } : { backgroundColor: "blue" }}
+                onClick={ () => setChosedSize(size.size) }
+                style={ (size.size === chosedSize) ? { backgroundColor: "#4998ff" } : { backgroundColor: "#e8ebf1" }}
               >
                 {(size.size)}
               </button>)
@@ -46,7 +57,14 @@ function ProductCard({ product }) {
         )}
         <FinalPrice>{ promotionPrice(product) }</FinalPrice>
       </div>
-      <button type="button" onClick={ () => addToCart() }>Comprar</button>
+      <button type="button" onClick={ (event) => addToCart(event) }>Comprar</button>
+      <Popper
+        open={ !chosedSize && openPopper }
+        anchorEl={ anchorEl }
+        placement="bottom"
+      >
+        <StyledPop>Escolha um tamanho!</StyledPop>
+      </Popper>
     </Container>
   )
 }

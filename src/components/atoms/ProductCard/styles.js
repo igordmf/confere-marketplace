@@ -86,3 +86,12 @@ export const FinalPrice = styled.span`
   font-size: 1.4rem;
   font-weight: 800;
 `
+
+export const StyledPop = styled.div`
+  background-color: white;
+  border: 1px solid #ff963a;
+  border-radius: 8px;
+  color: #1a1859;
+  margin: 10px 0 0 0;
+  padding: 5px;
+`

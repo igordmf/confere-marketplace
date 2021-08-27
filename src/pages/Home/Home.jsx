@@ -1,17 +1,29 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchProducts } from '../../redux/actions';
 import ProductsList from '../../components/molecules/ProductsList';
 import { Container } from './styles';
-import { products } from '../../db.json';
+/* import { products } from '../../db.json'; */
 import SearchBar from '../../components/molecules/SearchBar/SearchBar';
 
 function Home() {
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.productsReducer.products);
+  const filtredProducts = useSelector((state) => state.productsReducer.filtredProducts);
   const homeRef = useRef(null);
   console.log(products);
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch])
 
   return (
     <Container ref={ homeRef } >
       <SearchBar />
-      <ProductsList products={ products } homeRef={ homeRef } />
+      <ProductsList
+        products={ products.length === filtredProducts.length ? products : filtredProducts }
+        homeRef={ homeRef }
+      />
     </Container>
   )
 }
