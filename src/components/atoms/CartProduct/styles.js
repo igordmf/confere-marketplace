@@ -48,6 +48,12 @@ export const Container = styled.div`
     }
   }
 
+  >span:nth-child(6) {
+    color: #ff963a;
+    font-size: 1.4rem;
+    font-weight: 800;
+  }
+
   >button {
     background-color: #816cff;
     border-radius: 8px;

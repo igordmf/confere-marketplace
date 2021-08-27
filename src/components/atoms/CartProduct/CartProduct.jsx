@@ -1,8 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Container, NoDiscountPrice, Discount, FinalPrice } from './styles';
-import promotionPrice from '../../../helpers/promotionPrice';
 import { removeCartItem } from '../../../redux/actions';
+import promotionPrice from '../../../helpers/promotionPrice';
+import totalQuantityPrice from '../../../helpers/totalQuantityPrice';
 
 function ProductCard({ product }) {
   const dispatch = useDispatch();
@@ -27,6 +28,8 @@ function ProductCard({ product }) {
         )}
         <FinalPrice>{ promotionPrice(product) }</FinalPrice>
       </div>
+      <span>Quantidade: {product.quantity}</span>
+      <span>{ totalQuantityPrice(product) }</span>
       <button type="button" onClick={ () => removeFromCart() }>Remover</button>
     </Container>
   )

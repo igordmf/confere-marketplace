@@ -1,5 +1,6 @@
 import React from 'react';
 import CartProduct from '../../atoms/CartProduct';
+import TotalCart from '../../atoms/TotalCart';
 import { Container, Content, ProductWrapper } from './styles';
 
 function CartList({ products, homeRef }) {
@@ -14,6 +15,7 @@ function CartList({ products, homeRef }) {
             />
           ))}
         </ProductWrapper>
+        <TotalCart />
       </Content>
     </Container>
   )

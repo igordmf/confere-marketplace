@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 3228px;
-  height: 110%;
+  height: 100%;
   margin: 0 auto;
+  min-height: 969px;
   padding: 60px 0 60px 0;
 
   .no-itens {
@@ -13,7 +13,6 @@ export const Container = styled.div`
 `;
 
 export const StyledSpan = styled.span`
-  /* background-color: red; */
   color: #1a1859;
   font-size: 2rem;
   font-weight: 600;
