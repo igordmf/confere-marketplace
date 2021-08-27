@@ -1,4 +1,4 @@
-import { ADD_TO_CART } from "../actions/actionTypes";
+import { ADD_TO_CART, REMOVE_ITEM } from "../actions/actionTypes";
 
 const INITIAL_STATE = {
   cartItens: [],
@@ -11,6 +11,11 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         ...state,
         cartItens: [...state.cartItens, action.payload],
       };
+    case REMOVE_ITEM:
+      return {
+        ...state,
+        cartItens: [...state.cartItens.filter((item) => (item.name !== action.payload.name || item.chosedSize !== action.payload.chosedSize))],
+      }
     default:
       return state;
   }
