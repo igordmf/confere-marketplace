@@ -11,7 +11,6 @@ function Home() {
   const products = useSelector((state) => state.productsReducer.products);
   const filtredProducts = useSelector((state) => state.productsReducer.filtredProducts);
   const homeRef = useRef(null);
-  console.log(products);
 
   useEffect(() => {
     dispatch(fetchProducts());

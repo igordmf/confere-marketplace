@@ -6,28 +6,29 @@ export const Container = styled.div`
   border-radius: 8px;
   box-shadow: 0 1px 8px 2px #00000029;
   display: flex;
-  flex-direction: column;
+  height: 210px;
   justify-content: space-around;
-  min-width: 220px;
-  padding: 20px;
+  min-width: 500px;
+  padding: 15px;
   text-align: center;
-  /* height: 572px;
-  width: 480px; */
-  height: 480px;
-  width: 397px;
+  width: 1200px;
 
-  div:nth-child(3) {
-    align-items: center;
-    display: flex;
-    height: 76px;
-    justify-content: center;
+  div:nth-child(1) {
+    height: 85%;
   }
-
+  
   img {
     border-radius: 6px;
-    margin: 12px auto;
     height: 100%;
-    width: 100%;
+  }
+
+  div:nth-child(4) {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    height: 76px;
+    justify-content: center;
   }
 
   >span {
@@ -47,18 +48,6 @@ export const Container = styled.div`
     }
   }
 
-  div {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    
-    &:first-child {
-      height: 413px;
-      width: 70%;
-    }
-  }
-
   >button {
     background-color: #816cff;
     border-radius: 8px;
@@ -68,7 +57,7 @@ export const Container = styled.div`
     transition: 0.2s ease-in-out all;
 
     &:hover {
-      transform: scale(1.08);
+      transform: scale(1.01);
     }
   }
 `

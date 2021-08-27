@@ -19,14 +19,14 @@ export const Content = styled.main`
     button {
       background-color: #e8ebf1;
       border-radius: 8px;
-      padding: 10px;
+      padding: 8px 10px;
     }
   }
 `;
 
 export const ProductWrapper = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 50px;
   justify-content: center;
   margin: 20px auto;

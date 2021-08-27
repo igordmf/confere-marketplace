@@ -12,6 +12,7 @@ const productsReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         products: [...action.payload],
+        filtredProducts: [...action.payload],
       }
     case FILTER_PRODUCTS:
       return {
