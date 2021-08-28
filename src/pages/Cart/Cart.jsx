@@ -6,7 +6,6 @@ import CartList from '../../components/molecules/CartList';
 function Cart() {
   const homeRef = useRef(null);
   const cartItems = useSelector((state) => state.cartReducer.cartItems);
-  console.log(cartItems);
 
   return (
     <Container ref={ homeRef } >

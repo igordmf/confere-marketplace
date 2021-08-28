@@ -1,4 +1,6 @@
-import { GET_PRODUCTS, ADD_TO_CART, REMOVE_ITEM, FILTER_PRODUCTS } from './actionTypes';
+import { GET_PRODUCTS,
+  ADD_TO_CART, REMOVE_ITEM,
+  FILTER_PRODUCTS, LOCAL_STORAGE_TO_CART } from './actionTypes';
 import { products } from '../../db.json';
 
 export const getProducts = (data) => ({
@@ -25,4 +27,9 @@ export const removeCartItem = (product) => ({
 export const filterProducts = (term) => ({
   type: FILTER_PRODUCTS,
   payload: term,
+})
+
+export const localStorageCartItems = (localStorageItems) => ({
+  type: LOCAL_STORAGE_TO_CART,
+  payload: localStorageItems,
 })

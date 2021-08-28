@@ -4,11 +4,13 @@ import { Container, NoDiscountPrice, Discount, FinalPrice } from './styles';
 import { removeCartItem } from '../../../redux/actions';
 import promotionPrice from '../../../helpers/promotionPrice';
 import totalQuantityPrice from '../../../helpers/totalQuantityPrice';
+import removeFromLocalStorage from '../../../helpers/localStorageFunctions/removeFromLocalStorage';
 
 function ProductCard({ product }) {
   const dispatch = useDispatch();
 
   const removeFromCart = () => {
+    removeFromLocalStorage(product);
     dispatch(removeCartItem(product));
   }
   

@@ -5,6 +5,7 @@ import { Container, NoDiscountPrice, Discount, FinalPrice, StyledPop } from './s
 import promotionPrice from '../../../helpers/promotionPrice';
 import { addProductToCart } from '../../../redux/actions';
 import Popper from '@material-ui/core/Popper';
+import addToLocalStorage from '../../../helpers/localStorageFunctions/addToLocalStorage';
 
 function ProductCard({ product }) {
   const [chosedSize, setChosedSize] = useState(null);
@@ -15,6 +16,7 @@ function ProductCard({ product }) {
 
   const addToCart = (event) => {
     if (chosedSize) {
+      addToLocalStorage({ product, chosedSize: chosedSize });
       dispatch(addProductToCart({ ...product, chosedSize: chosedSize }));
       history.push('/cart');
     } else {
