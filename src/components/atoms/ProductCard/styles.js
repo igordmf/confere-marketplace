@@ -13,6 +13,12 @@ export const Container = styled.div`
   text-align: center;
   width: 480px;
 
+  @media(max-width: 1000px) {
+    padding: 15px;
+    height: 400px;
+    width: 300px;
+  }
+
   div:nth-child(3) {
     align-items: center;
     display: flex;

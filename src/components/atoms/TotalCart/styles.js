@@ -13,6 +13,10 @@ export const Container = styled.div`
   text-align: center;
   width: 1200px;
 
+  @media(max-width: 1250px) {
+    width: 80%;
+  }
+
   >div span:nth-child(1) {
     font-weight: 500;
   }

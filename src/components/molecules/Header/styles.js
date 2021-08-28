@@ -7,6 +7,10 @@ export const Container = styled.header`
   position: absolute;
   width: 100%;
   z-index: 1;
+
+  @media(max-width: 450px) {
+      width: 100vw;
+    }
 `;
 
 export const Content = styled.header`
@@ -15,6 +19,10 @@ export const Content = styled.header`
   padding-top: 10px;
   text-align: center;
   width: 100%;
+
+  @media(max-width: 450px) {
+      width: 100vw;
+    }
 
   h1 {
     color: #816cff;
@@ -36,6 +44,11 @@ export const Content = styled.header`
   img {
     margin: 5px 5px 0;
     width: 150px;
+
+    @media(max-width: 450px) {
+      display: none;
+      width: 30%;
+    }
   }
   
   a {

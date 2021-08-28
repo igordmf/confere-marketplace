@@ -8,6 +8,10 @@ export const StyledSearchBar = styled.div`
   min-width: 250px;
   width: 20%;
 
+  @media(max-width: 630px) {
+    margin-top: 40px;
+  }
+
   @media(max-width: 320px) {
     margin-top: 120px;
   }

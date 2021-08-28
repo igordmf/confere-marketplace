@@ -13,6 +13,12 @@ export const Container = styled.div`
   text-align: center;
   width: 1200px;
 
+  @media(max-width: 1250px) {
+    width: 80vw;
+    /* background-color: red; */
+  }
+
+
   div:nth-child(1) {
     height: 85%;
   }
@@ -35,10 +41,12 @@ export const Container = styled.div`
     color: #1a1859;
     font-weight: 500;
     margin: 3px 0;
+    margin: 0.187rem 0;
 
     button {
       background-color: #816cff;
       border-radius: 6px;
+      border-radius: 0.375rem;
       color: white;
       font-size: 1rem;
       padding: 2px 8px 0 8px;
@@ -53,7 +61,6 @@ export const Container = styled.div`
 
   >span:nth-child(6) {
     color: #ff963a;
-    /* color: #f72585; */
     font-size: 1.4rem;
     font-weight: 800;
   }
