@@ -24,8 +24,6 @@ function ProductCard({ product }) {
       setTimeout( () => {
         setOpenPopper(false);
       }, 2200);
-
-      console.log('escolha um tamanho');
     }
   }
 
@@ -40,7 +38,7 @@ function ProductCard({ product }) {
           ? (
               <button
                 key={ size.size }
-                onClick={ () => setChosedSize(size.size) }
+                onClick={ () => setChosedSize(chosedSize === size.size ? null : size.size) }
                 style={ (size.size === chosedSize) ? { backgroundColor: "#4998ff" } : { backgroundColor: "#e8ebf1" }}
               >
                 {(size.size)}
