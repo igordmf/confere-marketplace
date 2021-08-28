@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { Container, TotalPrice } from './styles';
 import totalValueAndQuantity from '../../../helpers/totalValueAndQuantity';

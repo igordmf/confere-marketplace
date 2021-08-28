@@ -22,12 +22,12 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         cartItems: [...state.cartItems.filter((item) => !(item.name === action.payload.name && item.chosedSize === action.payload.chosedSize))],
-      }
+      };
     case LOCAL_STORAGE_TO_CART:
       return {
         ...state,
         cartItems: [...action.payload],
-      }
+      };
     default:
       return state;
   }
