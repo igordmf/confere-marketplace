@@ -18,8 +18,8 @@ export const Content = styled.header`
 
   h1 {
     color: #816cff;
-    /* color: #1a1859; */
     font-size: 48px;
+    margin-right: 16px;
   }
 
   div, nav {
@@ -35,7 +35,7 @@ export const Content = styled.header`
 
   img {
     margin: 5px 5px 0;
-    width: 60px;
+    width: 150px;
   }
   
   a {

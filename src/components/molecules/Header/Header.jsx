@@ -10,7 +10,7 @@ function Header() {
       <Content>
         <div>
           <h1>Confere Marketplace</h1>
-          <img src='' alt="Logo" />
+          <img src='https://www.conferecartoes.com.br/hubfs/confere-shop-logo.png' alt="Logo" />
         </div>
         <nav>
           <StyledLink $isCurrentPath={ pathname === '/' } to='/'>Home</StyledLink>
