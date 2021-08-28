@@ -11,6 +11,9 @@ function ProductCard({ product }) {
   const [chosedSize, setChosedSize] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null);
   const [openPopper, setOpenPopper] = useState(false);
+  const [sizeAnchorEl, setSizeAnchorEl] = useState(null);
+  const [unavailableSize, setUnavailableSize] = useState(null);
+  const [showUnavailable, setShowUnavailable] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -29,6 +32,18 @@ function ProductCard({ product }) {
     }
   }
 
+  const showUnavailableSize = (event, size) => {
+    setSizeAnchorEl(event.currentTarget);
+    setShowUnavailable(true);
+    setUnavailableSize(size);
+
+    setTimeout( () => {
+      setSizeAnchorEl(null);
+      setShowUnavailable(false);
+      setUnavailableSize(null);
+    }, 1800);
+  }
+
   return (
     <Container>
       <div>
@@ -45,7 +60,24 @@ function ProductCard({ product }) {
               >
                 {(size.size)}
               </button>)
-          : null)}
+          : (
+            <>
+              <button
+                key={ size.size }
+                onClick={ (event) => showUnavailableSize(event, size.size) }
+                style={{ backgroundColor: "#e8ebf1" }}
+              >
+                {(size.size)}
+              </button>
+              <Popper
+                open={ unavailableSize === size.size && showUnavailable }
+                anchorEl={ sizeAnchorEl }
+                placement="bottom"
+              >
+                <StyledPop>Tamanho indisponível!</StyledPop>
+              </Popper>
+            </>
+            ))}
         </span>
       )}
       <div>
