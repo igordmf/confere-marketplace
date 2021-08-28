@@ -1,6 +1,7 @@
 import { GET_PRODUCTS,
   ADD_TO_CART, REMOVE_ITEM,
-  FILTER_PRODUCTS, LOCAL_STORAGE_TO_CART } from './actionTypes';
+  FILTER_PRODUCTS, LOCAL_STORAGE_TO_CART,
+  DECREASE_QUANTITY, INCREASE_QUANTITY } from './actionTypes';
 import { products } from '../../db.json';
 
 export const getProducts = (data) => ({
@@ -32,4 +33,14 @@ export const filterProducts = (term) => ({
 export const localStorageCartItems = (localStorageItems) => ({
   type: LOCAL_STORAGE_TO_CART,
   payload: localStorageItems,
+})
+
+export const decreaseQuantity = (product) => ({
+  type: DECREASE_QUANTITY,
+  payload: product,
+})
+
+export const increaseQuantity = (product) => ({
+  type: INCREASE_QUANTITY,
+  payload: product,
 })

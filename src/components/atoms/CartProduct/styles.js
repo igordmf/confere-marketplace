@@ -33,23 +33,27 @@ export const Container = styled.div`
 
   >span {
     color: #1a1859;
+    font-weight: 500;
     margin: 3px 0;
 
     button {
-      background-color: #e8ebf1;
+      background-color: #816cff;
       border-radius: 6px;
-      padding: 2px 10px 0 10px;
+      color: white;
+      font-size: 1rem;
+      padding: 2px 8px 0 8px;
       margin: 0 5px;
       transition: 0.2s ease-in-out all;
 
       &:hover {
-        transform: scale(1.08);
+        transform: scale(1.06);
       }
     }
   }
 
   >span:nth-child(6) {
     color: #ff963a;
+    /* color: #f72585; */
     font-size: 1.4rem;
     font-weight: 800;
   }

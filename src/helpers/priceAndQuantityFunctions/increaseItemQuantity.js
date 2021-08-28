@@ -1,6 +1,6 @@
 function increaseItemQuantity(itemsArray, itemAdded) {
   const newItemsArray = itemsArray.map((item) => {
-    if(item.name === itemAdded.name && item.chosedSize === itemAdded.chosedSize) {
+    if(item.name === itemAdded.name && item.chosenSize === itemAdded.chosenSize) {
       return { ...item, quantity: item.quantity + 1};
     }
     return item;

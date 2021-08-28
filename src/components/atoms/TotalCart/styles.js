@@ -13,8 +13,16 @@ export const Container = styled.div`
   text-align: center;
   width: 1200px;
 
+  >div span:nth-child(1) {
+    font-weight: 500;
+  }
+
+  >div:nth-child(1) span:nth-child(2) {
+    font-weight: 500;
+  }
+
   >button {
-    background-color: #1a1859;
+    background-color: #4998ff;
     border-radius: 8px;
     color: white;
     font-size: large;
@@ -23,7 +31,7 @@ export const Container = styled.div`
     transition: 0.2s ease-in-out all;
 
     &:hover {
-      transform: scale(1.01);
+      transform: scale(1.04);
     }
   }
 `

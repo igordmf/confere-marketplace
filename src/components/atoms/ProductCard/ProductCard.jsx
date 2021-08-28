@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Container, NoDiscountPrice, Discount, FinalPrice, StyledPop } from './styles';
-import promotionPrice from '../../../helpers/promotionPrice';
+import promotionPrice from '../../../helpers/priceAndQuantityFunctions/promotionPrice';
 import { addProductToCart } from '../../../redux/actions';
 import Popper from '@material-ui/core/Popper';
-import addToLocalStorage from '../../../helpers/localStorageFunctions/addToLocalStorage';
+import itemToLocalStorage from '../../../helpers/localStorage/itemToLocalStorage';
 
 function ProductCard({ product }) {
-  const [chosedSize, setChosedSize] = useState(null);
+  const [chosenSize, setChosenSize] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null);
   const [openPopper, setOpenPopper] = useState(false);
   const [sizeAnchorEl, setSizeAnchorEl] = useState(null);
@@ -18,9 +18,9 @@ function ProductCard({ product }) {
   const history = useHistory();
 
   const addToCart = (event) => {
-    if (chosedSize) {
-      addToLocalStorage({ product, chosedSize: chosedSize });
-      dispatch(addProductToCart({ ...product, chosedSize: chosedSize }));
+    if (chosenSize) {
+      itemToLocalStorage({ product, chosenSize: chosenSize });
+      dispatch(addProductToCart({ ...product, chosenSize: chosenSize }));
       history.push('/cart');
     } else {
       setAnchorEl(event.currentTarget);
@@ -30,6 +30,12 @@ function ProductCard({ product }) {
         setOpenPopper(false);
       }, 2200);
     }
+  }
+
+  const toggleChosenSize = (size) => {
+    setShowUnavailable(false);
+    setChosenSize(chosenSize === size ? null : size);
+
   }
 
   const showUnavailableSize = (event, size) => {
@@ -55,8 +61,8 @@ function ProductCard({ product }) {
           ? (
               <button
                 key={ size.size }
-                onClick={ () => setChosedSize(chosedSize === size.size ? null : size.size) }
-                style={ (size.size === chosedSize) ? { backgroundColor: "#4998ff" } : { backgroundColor: "#e8ebf1" }}
+                onClick={ () => toggleChosenSize(size.size) }
+                style={ (size.size === chosenSize) ? { backgroundColor: "#4998ff" } : { backgroundColor: "#e8ebf1" }}
               >
                 {(size.size)}
               </button>)
@@ -91,7 +97,7 @@ function ProductCard({ product }) {
       </div>
       <button type="button" onClick={ (event) => addToCart(event) }>Comprar</button>
       <Popper
-        open={ !chosedSize && openPopper }
+        open={ !chosenSize && openPopper }
         anchorEl={ anchorEl }
         placement="bottom"
       >

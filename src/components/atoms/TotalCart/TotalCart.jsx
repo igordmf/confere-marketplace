@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Container, TotalPrice } from './styles';
-import totalValueAndQuantity from '../../../helpers/totalValueAndQuantity';
+import totalValueAndQuantity from '../../../helpers/priceAndQuantityFunctions/totalValueAndQuantity';
 
 function TotalCart() {
   const cartItems = useSelector(state => state.cartReducer.cartItems);

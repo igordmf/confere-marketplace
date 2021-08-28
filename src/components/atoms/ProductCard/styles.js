@@ -28,6 +28,7 @@ export const Container = styled.div`
   }
 
   >span {
+    font-weight: 500;
     color: #1a1859;
     margin: 3px 0;
 
@@ -92,6 +93,6 @@ export const StyledPop = styled.div`
   border: 1px solid #ff963a;
   border-radius: 8px;
   color: #1a1859;
-  margin: 10px 0 0 0;
+  margin: 7px 0 0 0;
   padding: 5px;
 `
