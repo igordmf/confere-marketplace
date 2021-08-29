@@ -11,7 +11,7 @@ function TotalCart() {
     <Container>
       <div>
         <span>Quantidade total: </span>
-        <span>{totalQuantity} {totalQuantity > 1 ? 'items' : 'item'}</span>
+        <span>{totalQuantity} {totalQuantity > 1 ? 'itens' : 'item'}</span>
       </div>
       <div>
         <span>Valor total: </span>
