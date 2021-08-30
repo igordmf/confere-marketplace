@@ -31,6 +31,10 @@ export const Container = styled.div`
     margin: 12px auto;
     height: 100%;
     width: 100%;
+
+    @media(max-width: 450px) {
+      height: 80%;
+    }
   }
 
   >span {

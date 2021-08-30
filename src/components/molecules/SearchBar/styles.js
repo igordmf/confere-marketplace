@@ -12,9 +12,9 @@ export const StyledSearchBar = styled.div`
     margin-top: 40px;
   }
 
-  @media(max-width: 320px) {
-    margin-top: 120px;
-  }
+  /* @media(max-width: 320px) {
+    margin-top: 80px;
+  } */
 
   &:hover {
     box-shadow: 1px 1px 8px 1px #dcdcdc;
