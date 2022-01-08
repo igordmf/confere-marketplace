@@ -1,11 +1,8 @@
-import { GET_PRODUCTS,
-  ADD_TO_CART, REMOVE_ITEM,
-  FILTER_PRODUCTS, LOCAL_STORAGE_TO_CART,
-  DECREASE_QUANTITY, INCREASE_QUANTITY } from './actionTypes';
+import { ACTION_TYPES } from './actionTypes';
 import { products } from '../../db.json';
 
 export const getProducts = (data) => ({
-  type: GET_PRODUCTS,
+  type: ACTION_TYPES.GET_PRODUCTS,
   payload: data,
 })
 
@@ -16,31 +13,31 @@ export function fetchProducts() {
 }
 
 export const addProductToCart = (product) => ({
-  type: ADD_TO_CART,
+  type: ACTION_TYPES.ADD_TO_CART,
   payload: product,
 })
 
 export const removeCartItem = (product) => ({
-  type: REMOVE_ITEM,
+  type: ACTION_TYPES.REMOVE_ITEM,
   payload: product,
 })
 
 export const filterProducts = (term) => ({
-  type: FILTER_PRODUCTS,
+  type: ACTION_TYPES.FILTER_PRODUCTS,
   payload: term,
 })
 
 export const localStorageCartItems = (localStorageItems) => ({
-  type: LOCAL_STORAGE_TO_CART,
+  type: ACTION_TYPES.LOCAL_STORAGE_TO_CART,
   payload: localStorageItems,
 })
 
 export const decreaseQuantity = (product) => ({
-  type: DECREASE_QUANTITY,
+  type: ACTION_TYPES.DECREASE_QUANTITY,
   payload: product,
 })
 
 export const increaseQuantity = (product) => ({
-  type: INCREASE_QUANTITY,
+  type: ACTION_TYPES.INCREASE_QUANTITY,
   payload: product,
 })

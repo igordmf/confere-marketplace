@@ -1,6 +1,4 @@
-import { ADD_TO_CART, REMOVE_ITEM,
-  LOCAL_STORAGE_TO_CART, DECREASE_QUANTITY,
-  INCREASE_QUANTITY } from '../actions/actionTypes';
+import { ACTION_TYPES } from '../actions/actionTypes';
 import decreaseItemQuantity from '../../helpers/priceAndQuantityFunctions/decreaseItemQuantity';
 import increaseItemQuantity from '../../helpers/priceAndQuantityFunctions/increaseItemQuantity';
 
@@ -10,7 +8,7 @@ const INITIAL_STATE = {
 
 const cartReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case ADD_TO_CART:
+    case ACTION_TYPES.ADD_TO_CART:
       if(state.cartItems.some((item) => item.name === action.payload.name && item.chosenSize === action.payload.chosenSize)) {
         const newCartItems = increaseItemQuantity(state.cartItems,action.payload);
         return { ...state,
@@ -21,22 +19,22 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         ...state,
         cartItems: [...state.cartItems, newItem],
       };
-    case REMOVE_ITEM:
+    case ACTION_TYPES.REMOVE_ITEM:
       return {
         ...state,
         cartItems: [...state.cartItems.filter((item) => !(item.name === action.payload.name && item.chosenSize === action.payload.chosenSize))],
       };
-    case LOCAL_STORAGE_TO_CART:
+    case ACTION_TYPES.LOCAL_STORAGE_TO_CART:
       return {
         ...state,
         cartItems: [...action.payload],
       };
-    case DECREASE_QUANTITY:
+    case ACTION_TYPES.DECREASE_QUANTITY:
       const newCartItems = decreaseItemQuantity(state.cartItems,action.payload);
       return { ...state,
         cartItems: [...newCartItems]
       };
-    case INCREASE_QUANTITY:
+    case ACTION_TYPES.INCREASE_QUANTITY:
       const newCart = increaseItemQuantity(state.cartItems,action.payload);
       return { ...state,
         cartItems: [...newCart]

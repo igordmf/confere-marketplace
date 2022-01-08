@@ -4,27 +4,26 @@ import { Container, NoDiscountPrice, Discount, FinalPrice } from './styles';
 import { removeCartItem, decreaseQuantity, increaseQuantity } from '../../../redux/actions';
 import promotionPrice from '../../../helpers/priceAndQuantityFunctions/promotionPrice';
 import totalQuantityPrice from '../../../helpers/priceAndQuantityFunctions/totalQuantityPrice';
-import removeFromLocalStorage from '../../../helpers/localStorage/removeFromLocalStorage';
-import updateQttLocalStorage from '../../../helpers/localStorage/updateQttLocalStorage';
+import { LOCAL_STORAGE } from '../../../helpers/localStorage';
 
 function ProductCard({ product }) {
   const dispatch = useDispatch();
 
   const removeFromCart = () => {
-    removeFromLocalStorage(product);
+    LOCAL_STORAGE.removeFromLocalStorage(product);
     dispatch(removeCartItem(product));
   }
 
   const decreaseQtt = (product) => {
     if(product.quantity !== 1) {
       dispatch(decreaseQuantity(product));
-      updateQttLocalStorage([product, 'decrease']);
+      LOCAL_STORAGE.updateQttLocalStorage([product, 'decrease']);
     }
   }
 
   const increaseQtt = (product) => {
     dispatch(increaseQuantity(product));
-    updateQttLocalStorage([product, 'increase']);
+    LOCAL_STORAGE.updateQttLocalStorage([product, 'increase']);
   }
   
   return (

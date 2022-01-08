@@ -1,4 +1,4 @@
-import { GET_PRODUCTS, FILTER_PRODUCTS } from '../actions/actionTypes';
+import { ACTION_TYPES } from '../actions/actionTypes';
 import stringCompareWithRegex from '../../helpers/stringCompareWithRegex';
 
 const INITIAL_STATE = {
@@ -8,13 +8,13 @@ const INITIAL_STATE = {
 
 const productsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case GET_PRODUCTS:
+    case ACTION_TYPES.GET_PRODUCTS:
       return {
         ...state,
         products: [...action.payload],
         filtredProducts: [...action.payload],
       };
-    case FILTER_PRODUCTS:
+    case ACTION_TYPES.FILTER_PRODUCTS:
       return {
         ...state,
         filtredProducts: [...state.products
