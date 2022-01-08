@@ -7,8 +7,9 @@ export const ACTIONS = {
     payload: data,
   }),
   fetchProducts: () => {
+    console.log(ACTIONS);
     return ((dispatch) => {
-      dispatch(this.getProducts(products));
+      dispatch(ACTIONS.getProducts(products));
     })
   },
   addProductToCart: (product) => ({
