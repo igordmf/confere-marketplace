@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { filterProducts } from '../../../redux/actions';
+import { ACTIONS } from '../../../redux/actions';
 import { StyledSearchBar } from './styles';
 
 function SearchBar() {
@@ -8,7 +8,7 @@ function SearchBar() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(filterProducts(term));
+    dispatch(ACTIONS.filterProducts(term));
   }, [term, dispatch])
 
   const filterByTerm = async ({ target }) => {

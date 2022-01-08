@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import Routes from './routes';
 import Header from "./components/molecules/Header";
-import { localStorageCartItems } from './redux/actions';
+import { ACTIONS } from './redux/actions';
 import GlobalStyle from './styles/global';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     const cartItems = JSON.parse(localStorage.getItem('cartItems'));
     if(cartItems) {
-      dispatch(localStorageCartItems(cartItems));
+      dispatch(ACTIONS.localStorageCartItems(cartItems));
     }
   }, [dispatch])
 

@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Container, NoDiscountPrice, Discount, FinalPrice, StyledPop } from './styles';
 import promotionPrice from '../../../helpers/priceAndQuantityFunctions/promotionPrice';
-import { addProductToCart } from '../../../redux/actions';
+import { ACTIONS } from '../../../redux/actions';
 import Popper from '@material-ui/core/Popper';
 import { LOCAL_STORAGE } from '../../../helpers/localStorage';
 
@@ -20,7 +20,7 @@ function ProductCard({ product }) {
   const addToCart = (event) => {
     if (chosenSize) {
       LOCAL_STORAGE.itemToLocalStorage({ product, chosenSize: chosenSize });
-      dispatch(addProductToCart({ ...product, chosenSize: chosenSize }));
+      dispatch(ACTIONS.addProductToCart({ ...product, chosenSize: chosenSize }));
       history.push('/cart');
     } else {
       setAnchorEl(event.currentTarget);

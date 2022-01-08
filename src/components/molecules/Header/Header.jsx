@@ -1,6 +1,13 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { Container, Content, StyledLink } from './styles';
+import Logo from '../../../assets/images/confere-shop-logo.png'
+
+const confereShopLogoStyle = {
+  backgroundColor: "#f5f7f9",
+  margin: "auto",
+  transition: "background-color 300ms"
+}
 
 function Header() {
   const { pathname } = useLocation();
@@ -10,7 +17,11 @@ function Header() {
       <Content>
         <div>
           <h1>Confere Marketplace</h1>
-          <img src='https://www.conferecartoes.com.br/hubfs/confere-shop-logo.png' alt="Logo" />
+          <img
+            alt='Marketplace logo'
+            style={ confereShopLogoStyle }
+            src={ Logo }
+          />
         </div>
         <nav>
           <StyledLink $isCurrentPath={ pathname === '/' } to='/'>Home</StyledLink>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Container, NoDiscountPrice, Discount, FinalPrice } from './styles';
-import { removeCartItem, decreaseQuantity, increaseQuantity } from '../../../redux/actions';
+import { ACTIONS } from '../../../redux/actions';
 import promotionPrice from '../../../helpers/priceAndQuantityFunctions/promotionPrice';
 import totalQuantityPrice from '../../../helpers/priceAndQuantityFunctions/totalQuantityPrice';
 import { LOCAL_STORAGE } from '../../../helpers/localStorage';
@@ -11,18 +11,18 @@ function ProductCard({ product }) {
 
   const removeFromCart = () => {
     LOCAL_STORAGE.removeFromLocalStorage(product);
-    dispatch(removeCartItem(product));
+    dispatch(ACTIONS.removeCartItem(product));
   }
 
   const decreaseQtt = (product) => {
     if(product.quantity !== 1) {
-      dispatch(decreaseQuantity(product));
+      dispatch(ACTIONS.decreaseQuantity(product));
       LOCAL_STORAGE.updateQttLocalStorage([product, 'decrease']);
     }
   }
 
   const increaseQtt = (product) => {
-    dispatch(increaseQuantity(product));
+    dispatch(ACTIONS.increaseQuantity(product));
     LOCAL_STORAGE.updateQttLocalStorage([product, 'increase']);
   }
   

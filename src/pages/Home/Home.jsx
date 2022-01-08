@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchProducts } from '../../redux/actions';
+import { ACTIONS } from '../../redux/actions';
 import ProductsList from '../../components/molecules/ProductsList';
 import { Container } from './styles';
 /* import { products } from '../../db.json'; */
@@ -13,7 +13,7 @@ function Home() {
   const homeRef = useRef(null);
 
   useEffect(() => {
-    dispatch(fetchProducts());
+    dispatch(ACTIONS.fetchProducts());
   }, [dispatch])
 
   return (
