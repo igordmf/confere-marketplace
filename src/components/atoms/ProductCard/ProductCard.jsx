@@ -44,7 +44,6 @@ function ProductCard({ product }) {
     setUnavailableSize(size);
 
     setTimeout( () => {
-      setSizeAnchorEl(null);
       setShowUnavailable(false);
       setUnavailableSize(null);
     }, 1800);
@@ -67,22 +66,22 @@ function ProductCard({ product }) {
                 {(size.size)}
               </button>)
           : (
-            <>
+            
               <button
                 key={ size.size }
                 onClick={ (event) => showUnavailableSize(event, size.size) }
                 style={{ backgroundColor: "#e8ebf1" }}
               >
                 {(size.size)}
+                <Popper
+                  open={ unavailableSize === size.size && showUnavailable }
+                  anchorEl={ sizeAnchorEl }
+                  placement="bottom"
+                >
+                  <StyledPop>Tamanho indisponível!</StyledPop>
+                </Popper>
               </button>
-              <Popper
-                open={ unavailableSize === size.size && showUnavailable }
-                anchorEl={ sizeAnchorEl }
-                placement="bottom"
-              >
-                <StyledPop>Tamanho indisponível!</StyledPop>
-              </Popper>
-            </>
+            
             ))}
         </span>
       )}
